@@ -4,7 +4,7 @@ describe Owner do
   it { should validate_presence_of :first_name }
   it { should validate_presence_of :last_name }
   it { should validate_presence_of :email }
-  it { should have_many :dogs }
+  it { should have_many(:dogs).through(:dogownerships) }
 
   it { should have_valid(:first_name).when("Colin", "Krystle")}
   it { should_not have_valid(:first_name).when(nil,'')}
